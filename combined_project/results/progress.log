@@ -1,0 +1,25 @@
+21:09:25 HDFS NameNode is up
+21:09:27 Spark master is up
+21:09:46 HDFS: Live datanodes (2):
+21:09:57 Kafka topics created
+21:09:59 expecting 2964624 trips
+21:10:30 producer and streaming job started
+21:11:58 screenshot 01_spark_master saved=True
+21:12:20 screenshot 02_spark_streaming_queries saved=True
+21:13:10 screenshot 03_spark_executors saved=False
+21:31:17 producer finished: RESULT {"sent": 2964624, "failed": 0, "seconds": 1186.6, "msgs_per_sec": 2498, "file": "/opt/data/taxi/yellow_tripdata_2024-01.parquet", "limit": 0, "rate": 0}
+21:32:33 screenshot 04_spark_streaming_queries_late saved=True
+21:40:09 streaming job finished: RESULT {"kafka_rows_read": 2964624, "hourly_query_rows_read": 2964624, "expected": 2964624, "seconds": 1739.9, "stop_reason": "expected reached"}
+21:40:36 hourly stats topic messages: 0
+21:41:35 screenshot 05_hdfs_overview saved=True
+21:41:43 screenshot 06_hdfs_datanodes saved=True
+21:42:20 screenshot 07_hdfs_clean_trips saved=True
+21:43:28 YARN ResourceManager is up
+21:44:32 screenshot 08_yarn_running saved=True
+22:07:39 MapReduce zone exit=0 seconds=1,435
+22:27:20 MapReduce hour exit=0 seconds=1,181
+22:27:37 screenshot 09_yarn_finished saved=True
+22:28:11 screenshot 10_hdfs_outputs saved=True
+22:29:00 Spark master is up
+22:37:52 reconcile finished
+22:37:52 === pipeline finished ===

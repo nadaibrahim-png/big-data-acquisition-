@@ -1,0 +1,9 @@
+{
+ "sent": 2964624,
+ "failed": 0,
+ "seconds": 1186.6,
+ "msgs_per_sec": 2498,
+ "file": "/opt/data/taxi/yellow_tripdata_2024-01.parquet",
+ "limit": 0,
+ "rate": 0
+}

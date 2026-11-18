@@ -1,0 +1,28 @@
+{
+ "source_rows_in_file": 2964624,
+ "A_independent_clean_rows": 93153,
+ "A_independent_cents": 287775533,
+ "B_hdfs_rows": 93153,
+ "B_hdfs_cents": 287775533,
+ "C_mr_zone_trips": 93153,
+ "C_mr_zone_cents": 287775533,
+ "C_mr_hour_trips": 93153,
+ "C_mr_hour_cents": 287775533,
+ "B_vs_C_by_zone": {
+  "keys": 231,
+  "keys_that_differ": 0
+ },
+ "B_vs_C_by_hour": {
+  "keys": 142,
+  "keys_that_differ": 0
+ },
+ "A_vs_C_by_zone": {
+  "keys": 231,
+  "keys_that_differ": 0
+ },
+ "A_vs_C_by_hour": {
+  "keys": 142,
+  "keys_that_differ": 0
+ },
+ "repeated_identical_rows_on_hdfs": 0
+}

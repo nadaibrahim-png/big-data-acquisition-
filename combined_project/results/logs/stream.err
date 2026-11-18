@@ -1,0 +1,109 @@
+26/11/08 19:10:05 INFO SparkContext: Running Spark version 3.5.3
+26/11/08 19:10:05 INFO SparkContext: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/11/08 19:10:05 INFO SparkContext: Java version 11.0.24
+26/11/08 19:10:05 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/11/08 19:10:05 INFO ResourceUtils: ==============================================================
+26/11/08 19:10:05 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/11/08 19:10:05 INFO ResourceUtils: ==============================================================
+26/11/08 19:10:05 INFO SparkContext: Submitted application: Taxi-Kafka-to-HDFS
+26/11/08 19:10:05 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/11/08 19:10:05 INFO ResourceProfile: Limiting resource is cpu
+26/11/08 19:10:05 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/11/08 19:10:06 INFO SecurityManager: Changing view acls to: root
+26/11/08 19:10:06 INFO SecurityManager: Changing modify acls to: root
+26/11/08 19:10:06 INFO SecurityManager: Changing view acls groups to: 
+26/11/08 19:10:06 INFO SecurityManager: Changing modify acls groups to: 
+26/11/08 19:10:06 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+26/11/08 19:10:06 INFO Utils: Successfully started service 'sparkDriver' on port 37933.
+26/11/08 19:10:07 INFO SparkEnv: Registering MapOutputTracker
+26/11/08 19:10:07 INFO SparkEnv: Registering BlockManagerMaster
+26/11/08 19:10:07 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/11/08 19:10:07 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/11/08 19:10:07 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/11/08 19:10:07 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-e3fffed3-f0b8-4f7a-a11d-07649ec80351
+26/11/08 19:10:07 INFO MemoryStore: MemoryStore started with capacity 127.2 MiB
+26/11/08 19:10:07 INFO SparkEnv: Registering OutputCommitCoordinator
+26/11/08 19:10:07 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/11/08 19:10:07 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/11/08 19:10:08 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+26/11/08 19:10:08 INFO TransportClientFactory: Successfully created connection to spark-master/172.19.0.4:7077 after 46 ms (0 ms spent in bootstraps)
+26/11/08 19:10:09 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20261108191009-0000
+26/11/08 19:10:09 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 35997.
+26/11/08 19:10:09 INFO NettyBlockTransferService: Server created on spark-master:35997
+26/11/08 19:10:09 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/11/08 19:10:09 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, spark-master, 35997, None)
+26/11/08 19:10:09 INFO BlockManagerMasterEndpoint: Registering block manager spark-master:35997 with 127.2 MiB RAM, BlockManagerId(driver, spark-master, 35997, None)
+26/11/08 19:10:09 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, spark-master, 35997, None)
+26/11/08 19:10:09 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, spark-master, 35997, None)
+26/11/08 19:10:09 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20261108191009-0000/0 on worker-20261108190916-172.19.0.8-36709 (172.19.0.8:36709) with 2 core(s)
+26/11/08 19:10:09 INFO StandaloneSchedulerBackend: Granted executor ID app-20261108191009-0000/0 on hostPort 172.19.0.8:36709 with 2 core(s), 1024.0 MiB RAM
+26/11/08 19:10:09 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+26/11/08 19:10:50 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+26/11/08 19:11:01 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+26/11/08 19:11:02 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+26/11/08 19:11:02 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+26/11/08 19:11:56 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 55304 milliseconds
+26/11/08 19:12:18 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 76870 milliseconds
+26/11/08 19:13:16 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 80565 milliseconds
+26/11/08 19:14:37 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 139010 milliseconds
+26/11/08 19:15:41 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 143246 milliseconds
+26/11/08 19:16:13 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 95714 milliseconds
+26/11/08 19:16:53 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 71961 milliseconds
+26/11/08 19:17:14 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 60230 milliseconds
+26/11/08 19:18:04 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 70368 milliseconds
+26/11/08 19:18:43 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 89277 milliseconds
+26/11/08 19:18:56 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 52037 milliseconds
+26/11/08 19:19:43 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 47015 milliseconds
+26/11/08 19:20:25 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 101480 milliseconds
+26/11/08 19:20:33 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 49897 milliseconds
+26/11/08 19:21:16 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 51049 milliseconds
+26/11/08 19:21:21 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 47524 milliseconds
+26/11/08 19:22:12 WARN FileStreamSinkLog: Compacting took 7514 ms for compact batch 9
+26/11/08 19:22:13 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 52624 milliseconds
+26/11/08 19:22:39 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 82796 milliseconds
+26/11/08 19:23:14 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 60498 milliseconds
+26/11/08 19:23:35 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 56330 milliseconds
+26/11/08 19:24:07 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 53272 milliseconds
+26/11/08 19:24:43 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 67334 milliseconds
+26/11/08 19:25:08 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 60752 milliseconds
+26/11/08 19:25:25 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 41853 milliseconds
+26/11/08 19:25:47 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 39201 milliseconds
+26/11/08 19:26:31 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 66421 milliseconds
+26/11/08 19:26:36 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 48036 milliseconds
+26/11/08 19:27:00 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 24458 milliseconds
+26/11/08 19:27:13 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 41547 milliseconds
+26/11/08 19:27:43 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 42386 milliseconds
+26/11/08 19:28:07 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 54109 milliseconds
+26/11/08 19:28:48 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 64831 milliseconds
+26/11/08 19:28:59 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 51619 milliseconds
+26/11/08 19:29:38 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 50335 milliseconds
+26/11/08 19:30:33 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 93901 milliseconds
+26/11/08 19:30:38 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 59812 milliseconds
+26/11/08 19:31:19 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 41125 milliseconds
+26/11/08 19:32:21 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 108045 milliseconds
+26/11/08 19:32:26 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 67144 milliseconds
+26/11/08 19:32:48 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 27513 milliseconds
+26/11/08 19:32:50 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 24073 milliseconds
+26/11/08 19:33:03 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 12725 milliseconds
+26/11/08 19:33:11 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 22597 milliseconds
+26/11/08 19:33:25 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 22260 milliseconds
+26/11/08 19:33:49 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 37560 milliseconds
+26/11/08 19:34:02 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 36994 milliseconds
+26/11/08 19:34:11 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 22209 milliseconds
+26/11/08 19:34:22 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 19810 milliseconds
+26/11/08 19:34:39 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 28383 milliseconds
+26/11/08 19:34:41 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 18931 milliseconds
+26/11/08 19:35:11 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 29656 milliseconds
+26/11/08 19:35:24 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 44974 milliseconds
+26/11/08 19:35:50 WARN FileStreamSinkLog: Compacting took 2851 ms for compact batch 29
+26/11/08 19:35:51 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 39826 milliseconds
+26/11/08 19:36:13 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 48442 milliseconds
+26/11/08 19:36:44 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 53598 milliseconds
+26/11/08 19:37:02 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 49564 milliseconds
+26/11/08 19:37:38 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 35639 milliseconds
+26/11/08 19:38:00 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 21821 milliseconds
+26/11/08 19:38:13 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 13362 milliseconds
+26/11/08 19:38:26 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 12969 milliseconds
+26/11/08 19:39:14 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 47412 milliseconds
+26/11/08 19:39:49 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 34870 milliseconds
+26/11/08 19:39:59 WARN ProcessingTimeExecutor: Current batch is falling behind. The trigger interval is 10000 milliseconds, but spent 10462 milliseconds

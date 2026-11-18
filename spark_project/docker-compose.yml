@@ -1,0 +1,44 @@
+version: '3.8'
+
+x-spark: &spark
+  build: 
+    context: ./01-spark
+    dockerfile: Dockerfile
+  image: spark-taxi:latest
+  user: root
+  volumes:
+    - .:/opt/app
+    - ./data:/opt/data
+    - ./results:/opt/output
+  networks:
+    - spark-net
+
+services:
+  spark-master:
+    <<: *spark
+    container_name: spark-master
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+      - "4040:4040"   # <-- Add this line here!
+    environment:
+      - SPARK_MASTER_HOST=spark-master
+
+  spark-worker-1:
+    <<: *spark
+    container_name: spark-worker-1
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker --cores 2 --memory 2g spark://spark-master:7077
+    depends_on:
+      - spark-master
+
+  spark-worker-2:
+    <<: *spark
+    container_name: spark-worker-2
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker --cores 2 --memory 2g spark://spark-master:7077
+    depends_on:
+      - spark-master
+
+networks:
+  spark-net:
+    driver: bridge

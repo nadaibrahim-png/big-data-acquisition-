@@ -1,0 +1,13 @@
+loaded 2,964,624 trips from /opt/data/taxi/yellow_tripdata_2024-01.parquet
+sent 250,000  (5,944 msg/s)
+sent 500,000  (3,504 msg/s)
+sent 750,000  (2,628 msg/s)
+sent 1,000,000  (2,526 msg/s)
+sent 1,250,000  (2,524 msg/s)
+sent 1,500,000  (2,529 msg/s)
+sent 1,750,000  (2,538 msg/s)
+sent 2,000,000  (2,517 msg/s)
+sent 2,250,000  (2,513 msg/s)
+sent 2,500,000  (2,518 msg/s)
+sent 2,750,000  (2,497 msg/s)
+RESULT {"sent": 2964624, "failed": 0, "seconds": 1186.6, "msgs_per_sec": 2498, "file": "/opt/data/taxi/yellow_tripdata_2024-01.parquet", "limit": 0, "rate": 0}

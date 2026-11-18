@@ -1,0 +1,6 @@
+﻿Topic: taxi-hourly-stats	TopicId: 77VbNs5BRUKZHVwU1yxR5A	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+	Topic: taxi-hourly-stats	Partition: 0	Leader: 1001	Replicas: 1001	Isr: 1001
+Topic: taxi-trips	TopicId: 8sIMVGfyQwyiSCClUF0p5w	PartitionCount: 3	ReplicationFactor: 1	Configs: 
+	Topic: taxi-trips	Partition: 0	Leader: 1001	Replicas: 1001	Isr: 1001
+	Topic: taxi-trips	Partition: 1	Leader: 1001	Replicas: 1001	Isr: 1001
+	Topic: taxi-trips	Partition: 2	Leader: 1001	Replicas: 1001	Isr: 1001

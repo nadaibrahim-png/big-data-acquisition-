@@ -1,0 +1,8 @@
+﻿Status: HEALTHY
+ Total size:	212035117 B
+ Total files:	124
+ Total blocks (validated):	124 (avg. block size 1709960 B)
+ Under-replicated blocks:	0 (0.0 %)
+ Average block replication:	2.0
+ Total size:	0 B
+ Total files:	0

@@ -1,0 +1,8 @@
+﻿Bronx	Allerton/Pelham Gardens	81	3627.59
+Bronx	Belmont	101	3867.55
+Bronx	Bronx Park	5	226.25
+Bronx	Bronxdale	101	3699.21
+Bronx	Co-Op City	362	15943.14
+Bronx	Crotona Park East	101	3302.76
+Bronx	Eastchester	112	4620.57
+Bronx	Highbridge	145	4680.80

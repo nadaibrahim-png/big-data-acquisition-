@@ -1,0 +1,7 @@
+{
+ "kafka_rows_read": 2964624,
+ "hourly_query_rows_read": 2964624,
+ "expected": 2964624,
+ "seconds": 1739.9,
+ "stop_reason": "expected reached"
+}

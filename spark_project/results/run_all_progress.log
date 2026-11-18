@@ -1,0 +1,86 @@
+13:19:33 === run_all begin (reps=3) ===
+13:34:40 done  A_w2_r3  metrics=True  executor_lost=False
+13:35:03 cluster ready: 1 alive worker(s)
+13:35:03 start B_w1_r1 (cache=1 join=broadcast gbt=0)
+13:37:32 done  B_w1_r1  metrics=True  executor_lost=False
+13:37:32 start B_w1_r2 (cache=1 join=broadcast gbt=0)
+13:42:02 done  B_w1_r2  metrics=True  executor_lost=False
+13:42:02 start B_w1_r3 (cache=1 join=broadcast gbt=0)
+13:46:06 done  B_w1_r3  metrics=True  executor_lost=False
+13:46:35 cluster ready: 2 alive worker(s)
+13:46:35 start C_nocache_r1 (cache=0 join=broadcast gbt=0)
+13:51:52 done  C_nocache_r1  metrics=True  executor_lost=False
+13:51:52 start C_nocache_r2 (cache=0 join=broadcast gbt=0)
+13:56:11 done  C_nocache_r2  metrics=True  executor_lost=False
+13:56:11 start C_nocache_r3 (cache=0 join=broadcast gbt=0)
+14:15:10 done  C_nocache_r3  metrics=True  executor_lost=True
+14:15:26 cluster ready: 2 alive worker(s)
+14:15:26 start D_smj_r1 (cache=1 join=smj gbt=0)
+14:21:40 done  D_smj_r1  metrics=True  executor_lost=False
+14:21:40 start D_smj_r2 (cache=1 join=smj gbt=0)
+14:29:37 done  D_smj_r2  metrics=True  executor_lost=False
+14:29:37 start D_smj_r3 (cache=1 join=smj gbt=0)
+14:44:28 done  D_smj_r3  metrics=True  executor_lost=False
+14:45:18 cluster ready: 2 alive worker(s)
+14:45:19 start F_full_gbt (cache=1 join=broadcast gbt=1)
+14:46:08 === run_all begin (reps=3) ===
+14:46:08 === run_all finished ===
+14:46:09 === run_all begin (reps=1) ===
+14:46:40 cluster ready: 2 alive worker(s)
+14:46:40 start C_nocache_r3 (cache=0 join=broadcast gbt=0)
+14:55:58 done  C_nocache_r3  metrics=True  executor_lost=True
+14:55:58 === run_all finished ===
+14:56:05 === run_all begin (reps=3) ===
+14:56:38 cluster ready: 2 alive worker(s)
+14:56:38 start D_smj_r1 (cache=1 join=smj gbt=0)
+15:12:25 done  D_smj_r1  metrics=True  executor_lost=True
+15:12:25 start D_smj_r2 (cache=1 join=smj gbt=0)
+15:23:24 done  D_smj_r2  metrics=True  executor_lost=False
+15:23:24 start D_smj_r3 (cache=1 join=smj gbt=0)
+15:36:17 done  D_smj_r3  metrics=True  executor_lost=True
+15:36:17 === run_all finished ===
+15:36:20 === run_all begin (reps=3) ===
+15:36:55 cluster ready: 2 alive worker(s)
+15:36:55 start F_full_gbt (cache=1 join=broadcast gbt=1)
+15:47:40 done  F_full_gbt  metrics=True  executor_lost=False
+15:47:40 === run_all finished ===
+16:12:49 === run_all begin (reps=3) ===
+16:13:21 cluster ready: 2 alive worker(s)
+16:13:21 start D_smj_r1 (cache=1 join=smj gbt=0)
+16:21:16 done  D_smj_r1  metrics=True  executor_lost=False
+16:21:16 start D_smj_r2 (cache=1 join=smj gbt=0)
+16:29:18 done  D_smj_r2  metrics=True  executor_lost=False
+16:29:18 start D_smj_r3 (cache=1 join=smj gbt=0)
+16:37:30 done  D_smj_r3  metrics=True  executor_lost=False
+16:37:30 === run_all finished ===
+16:37:33 === run_all begin (reps=1) ===
+16:38:02 cluster ready: 2 alive worker(s)
+16:38:02 start C_nocache_r3 (cache=0 join=broadcast gbt=0)
+16:42:07 done  C_nocache_r3  metrics=True  executor_lost=False
+16:42:07 === run_all finished ===
+16:43:17 === run_all begin (reps=3) ===
+16:43:37 cluster ready: 2 alive worker(s)
+16:49:42 done  A_w2_r1  metrics=True  executor_lost=False
+16:49:42 start A_w2_r2 (cache=1 join=broadcast gbt=0)
+16:55:34 done  A_w2_r2  metrics=True  executor_lost=False
+16:55:34 start A_w2_r3 (cache=1 join=broadcast gbt=0)
+17:02:23 done  A_w2_r3  metrics=True  executor_lost=False
+17:02:23 === run_all finished ===
+17:02:27 === run_all begin (reps=3) ===
+17:02:57 cluster ready: 1 alive worker(s)
+17:02:57 start B_w1_r1 (cache=1 join=broadcast gbt=0)
+17:08:55 done  B_w1_r1  metrics=True  executor_lost=False
+17:08:55 start B_w1_r2 (cache=1 join=broadcast gbt=0)
+17:17:23 done  B_w1_r2  metrics=True  executor_lost=False
+17:17:23 start B_w1_r3 (cache=1 join=broadcast gbt=0)
+17:25:02 done  B_w1_r3  metrics=True  executor_lost=False
+17:25:02 === run_all finished ===
+17:25:05 === run_all begin (reps=3) ===
+17:25:45 cluster ready: 2 alive worker(s)
+17:25:45 start C_nocache_r1 (cache=0 join=broadcast gbt=0)
+17:39:29 done  C_nocache_r1  metrics=True  executor_lost=False
+17:39:29 start C_nocache_r2 (cache=0 join=broadcast gbt=0)
+17:52:46 done  C_nocache_r2  metrics=True  executor_lost=False
+17:52:47 start C_nocache_r3 (cache=0 join=broadcast gbt=0)
+18:11:07 done  C_nocache_r3  metrics=True  executor_lost=False
+18:11:07 === run_all finished ===

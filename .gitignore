@@ -1,0 +1,14 @@
+# Course material and unrelated files in this folder
+/*.pdf
+/*.docx
+
+# Taxi trip data: public NYC TLC files, download with spark_project/01-spark/scripts/get_taxi_data.sh
+*.parquet
+
+# Superseded benchmark runs (clock-fault and earlier attempts)
+spark_project/results/archive_*/
+
+# Spark/Hadoop output side files, Python and Office temp files
+*.crc
+__pycache__/
+~$*

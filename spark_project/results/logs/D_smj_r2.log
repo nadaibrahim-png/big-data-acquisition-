@@ -1,0 +1,113 @@
+﻿RESULT,raw_count,5.72
+raw rows: 9554778
+== Physical Plan ==
+AdaptiveSparkPlan isFinalPlan=false
++- Project [DOLocationID#43, PULocationID#42, tpep_pickup_datetime#38, tpep_dropoff_datetime#39, passenger_count#40, trip_distance#41, payment_type#44, fare_amount#45, tip_amount#46, total_amount#47, duration_min#212, speed_mph#224, pickup_hour#237, dow#251, pickup_date#266, tip_pct#282, PU_Borough#330, PU_Zone#331, DO_Borough#336, DO_Zone#337]
+   +- SortMergeJoin [DOLocationID#43], [DOLocationID#335], Inner
+      :- Sort [DOLocationID#43 ASC NULLS FIRST], false, 0
+      :  +- Exchange hashpartitioning(DOLocationID#43, 8), ENSURE_REQUIREMENTS, [plan_id=162]
+      :     +- Project [PULocationID#42, tpep_pickup_datetime#38, tpep_dropoff_datetime#39, passenger_count#40, trip_distance#41, DOLocationID#43, payment_type#44, fare_amount#45, tip_amount#46, total_amount#47, duration_min#212, speed_mph#224, pickup_hour#237, dow#251, pickup_date#266, tip_pct#282, PU_Borough#330, PU_Zone#331]
+      :        +- SortMergeJoin [PULocationID#42], [PULocationID#329], Inner
+      :           :- Sort [PULocationID#42 ASC NULLS FIRST], false, 0
+      :           :  +- Exchange hashpartitioning(PULocationID#42, 8), ENSURE_REQUIREMENTS, [plan_id=154]
+      :           :     +- Union
+      :           :        :- Project [tpep_pickup_datetime#38, tpep_dropoff_datetime#39, passenger_count#40, trip_distance#41, PULocationID#42, DOLocationID#43, payment_type#44, fare_amount#45, tip_amount#46, total_amount#47, duration_min#212, (trip_distance#41 / (duration_min#212 / 60.0)) AS speed_mph#224, hour(tpep_pickup_datetime#38, Some(Etc/UTC)) AS pickup_hour#237, dayofweek(cast(tpep_pickup_datetime#38 as date)) AS dow#251, cast(tpep_pickup_datetime#38 as date) AS pickup_date#266, ((tip_amount#46 * 100.0) / fare_amount#45) AS tip_pct#282]
+      :           :        :  +- Project [tpep_pickup_datetime#38, tpep_dropoff_datetime#39, passenger_count#40, trip_distance#41, PULocationID#42, DOLocationID#43, payment_type#44, fare_amount#45, tip_amount#46, total_amount#47, (cast((unix_timestamp(tpep_dropoff_datetime#39, yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false) - unix_timestamp(tpep_pickup_datetime#38, yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false)) as double) / 60.0) AS duration_min#212]
+      :           :        :     +- Project [cast(tpep_pickup_datetime#1 as timestamp) AS tpep_pickup_datetime#38, cast(tpep_dropoff_datetime#2 as timestamp) AS tpep_dropoff_datetime#39, cast(passenger_count#3L as int) AS passenger_count#40, trip_distance#4 AS trip_distance#41, PULocationID#7 AS PULocationID#42, DOLocationID#8 AS DOLocationID#43, cast(payment_type#9L as int) AS payment_type#44, fare_amount#10 AS fare_amount#45, tip_amount#13 AS tip_amount#46, total_amount#16 AS total_amount#47]
+      :           :        :        +- Filter ((((((((((((((isnotnull(tpep_pickup_datetime#1) AND isnotnull(trip_distance#4)) AND isnotnull(fare_amount#10)) AND isnotnull(total_amount#16)) AND (cast(tpep_pickup_datetime#1 as timestamp) >= 2024-01-01 00:00:00)) AND (cast(tpep_pickup_datetime#1 as timestamp) <= 2024-07-01 00:00:00)) AND ((cast((unix_timestamp(cast(tpep_dropoff_datetime#2 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false) - unix_timestamp(cast(tpep_pickup_datetime#1 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false)) as double) / 60.0) >= 1.0)) AND ((cast((unix_timestamp(cast(tpep_dropoff_datetime#2 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false) - unix_timestamp(cast(tpep_pickup_datetime#1 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false)) as double) / 60.0) <= 180.0)) AND (trip_distance#4 >= 0.1)) AND (trip_distance#4 <= 100.0)) AND (fare_amount#10 > 0.0)) AND (total_amount#16 > 0.0)) AND ((trip_distance#4 / ((cast((unix_timestamp(cast(tpep_dropoff_datetime#2 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false) - unix_timestamp(cast(tpep_pickup_datetime#1 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false)) as double) / 60.0) / 60.0)) < 80.0)) AND isnotnull(PULocationID#7)) AND isnotnull(DOLocationID#8))
+      :           :        :           +- FileScan parquet [tpep_pickup_datetime#1,tpep_dropoff_datetime#2,passenger_count#3L,trip_distance#4,PULocationID#7,DOLocationID#8,payment_type#9L,fare_amount#10,tip_amount#13,total_amount#16] Batched: true, DataFilters: [isnotnull(tpep_pickup_datetime#1), isnotnull(trip_distance#4), isnotnull(fare_amount#10), isnotn..., Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/opt/data/taxi/yellow_tripdata_2024-01.parquet], PartitionFilters: [], PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(trip_distance), IsNotNull(fare_amount), IsNotNull(tot..., ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,passenger_count:big...
+      :           :        :- Project [tpep_pickup_datetime#97, tpep_dropoff_datetime#98, passenger_count#99, trip_distance#63, PULocationID#66, DOLocationID#67, payment_type#103, fare_amount#69, tip_amount#72, total_amount#75, duration_min#384, (trip_distance#63 / (duration_min#384 / 60.0)) AS speed_mph#386, hour(tpep_pickup_datetime#97, Some(Etc/UTC)) AS pickup_hour#387, dayofweek(cast(tpep_pickup_datetime#97 as date)) AS dow#388, cast(tpep_pickup_datetime#97 as date) AS pickup_date#389, ((tip_amount#72 * 100.0) / fare_amount#69) AS tip_pct#390]
+      :           :        :  +- Project [tpep_pickup_datetime#97, tpep_dropoff_datetime#98, passenger_count#99, trip_distance#63, PULocationID#66, DOLocationID#67, payment_type#103, fare_amount#69, tip_amount#72, total_amount#75, (cast((unix_timestamp(tpep_dropoff_datetime#98, yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false) - unix_timestamp(tpep_pickup_datetime#97, yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false)) as double) / 60.0) AS duration_min#384]
+      :           :        :     +- Project [cast(tpep_pickup_datetime#60 as timestamp) AS tpep_pickup_datetime#97, cast(tpep_dropoff_datetime#61 as timestamp) AS tpep_dropoff_datetime#98, cast(passenger_count#62L as int) AS passenger_count#99, trip_distance#63, PULocationID#66, DOLocationID#67, cast(payment_type#68L as int) AS payment_type#103, fare_amount#69, tip_amount#72, total_amount#75]
+      :           :        :        +- Filter ((((((((((((((isnotnull(tpep_pickup_datetime#60) AND isnotnull(trip_distance#63)) AND isnotnull(fare_amount#69)) AND isnotnull(total_amount#75)) AND (cast(tpep_pickup_datetime#60 as timestamp) >= 2024-01-01 00:00:00)) AND (cast(tpep_pickup_datetime#60 as timestamp) <= 2024-07-01 00:00:00)) AND ((cast((unix_timestamp(cast(tpep_dropoff_datetime#61 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false) - unix_timestamp(cast(tpep_pickup_datetime#60 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false)) as double) / 60.0) >= 1.0)) AND ((cast((unix_timestamp(cast(tpep_dropoff_datetime#61 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false) - unix_timestamp(cast(tpep_pickup_datetime#60 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false)) as double) / 60.0) <= 180.0)) AND (trip_distance#63 >= 0.1)) AND (trip_distance#63 <= 100.0)) AND (fare_amount#69 > 0.0)) AND (total_amount#75 > 0.0)) AND ((trip_distance#63 / ((cast((unix_timestamp(cast(tpep_dropoff_datetime#61 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false) - unix_timestamp(cast(tpep_pickup_datetime#60 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false)) as double) / 60.0) / 60.0)) < 80.0)) AND isnotnull(PULocationID#66)) AND isnotnull(DOLocationID#67))
+      :           :        :           +- FileScan parquet [tpep_pickup_datetime#60,tpep_dropoff_datetime#61,passenger_count#62L,trip_distance#63,PULocationID#66,DOLocationID#67,payment_type#68L,fare_amount#69,tip_amount#72,total_amount#75] Batched: true, DataFilters: [isnotnull(tpep_pickup_datetime#60), isnotnull(trip_distance#63), isnotnull(fare_amount#69), isno..., Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/opt/data/taxi/yellow_tripdata_2024-02.parquet], PartitionFilters: [], PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(trip_distance), IsNotNull(fare_amount), IsNotNull(tot..., ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,passenger_count:big...
+      :           :        +- Project [tpep_pickup_datetime#156, tpep_dropoff_datetime#157, passenger_count#158, trip_distance#122, PULocationID#125, DOLocationID#126, payment_type#162, fare_amount#128, tip_amount#131, total_amount#134, duration_min#385, (trip_distance#122 / (duration_min#385 / 60.0)) AS speed_mph#391, hour(tpep_pickup_datetime#156, Some(Etc/UTC)) AS pickup_hour#392, dayofweek(cast(tpep_pickup_datetime#156 as date)) AS dow#393, cast(tpep_pickup_datetime#156 as date) AS pickup_date#394, ((tip_amount#131 * 100.0) / fare_amount#128) AS tip_pct#395]
+      :           :           +- Project [tpep_pickup_datetime#156, tpep_dropoff_datetime#157, passenger_count#158, trip_distance#122, PULocationID#125, DOLocationID#126, payment_type#162, fare_amount#128, tip_amount#131, total_amount#134, (cast((unix_timestamp(tpep_dropoff_datetime#157, yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false) - unix_timestamp(tpep_pickup_datetime#156, yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false)) as double) / 60.0) AS duration_min#385]
+      :           :              +- Project [cast(tpep_pickup_datetime#119 as timestamp) AS tpep_pickup_datetime#156, cast(tpep_dropoff_datetime#120 as timestamp) AS tpep_dropoff_datetime#157, cast(passenger_count#121L as int) AS passenger_count#158, trip_distance#122, PULocationID#125, DOLocationID#126, cast(payment_type#127L as int) AS payment_type#162, fare_amount#128, tip_amount#131, total_amount#134]
+      :           :                 +- Filter ((((((((((((((isnotnull(tpep_pickup_datetime#119) AND isnotnull(trip_distance#122)) AND isnotnull(fare_amount#128)) AND isnotnull(total_amount#134)) AND (cast(tpep_pickup_datetime#119 as timestamp) >= 2024-01-01 00:00:00)) AND (cast(tpep_pickup_datetime#119 as timestamp) <= 2024-07-01 00:00:00)) AND ((cast((unix_timestamp(cast(tpep_dropoff_datetime#120 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false) - unix_timestamp(cast(tpep_pickup_datetime#119 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false)) as double) / 60.0) >= 1.0)) AND ((cast((unix_timestamp(cast(tpep_dropoff_datetime#120 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false) - unix_timestamp(cast(tpep_pickup_datetime#119 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false)) as double) / 60.0) <= 180.0)) AND (trip_distance#122 >= 0.1)) AND (trip_distance#122 <= 100.0)) AND (fare_amount#128 > 0.0)) AND (total_amount#134 > 0.0)) AND ((trip_distance#122 / ((cast((unix_timestamp(cast(tpep_dropoff_datetime#120 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false) - unix_timestamp(cast(tpep_pickup_datetime#119 as timestamp), yyyy-MM-dd HH:mm:ss, Some(Etc/UTC), false)) as double) / 60.0) / 60.0)) < 80.0)) AND isnotnull(PULocationID#125)) AND isnotnull(DOLocationID#126))
+      :           :                    +- FileScan parquet [tpep_pickup_datetime#119,tpep_dropoff_datetime#120,passenger_count#121L,trip_distance#122,PULocationID#125,DOLocationID#126,payment_type#127L,fare_amount#128,tip_amount#131,total_amount#134] Batched: true, DataFilters: [isnotnull(tpep_pickup_datetime#119), isnotnull(trip_distance#122), isnotnull(fare_amount#128), i..., Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/opt/data/taxi/yellow_tripdata_2024-03.parquet], PartitionFilters: [], PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(trip_distance), IsNotNull(fare_amount), IsNotNull(tot..., ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,passenger_count:big...
+      :           +- Sort [PULocationID#329 ASC NULLS FIRST], false, 0
+      :              +- Exchange hashpartitioning(PULocationID#329, 8), ENSURE_REQUIREMENTS, [plan_id=155]
+      :                 +- Project [cast(LocationID#316 as int) AS PULocationID#329, Borough#317 AS PU_Borough#330, Zone#318 AS PU_Zone#331]
+      :                    +- Filter isnotnull(cast(LocationID#316 as int))
+      :                       +- FileScan csv [LocationID#316,Borough#317,Zone#318] Batched: false, DataFilters: [isnotnull(cast(LocationID#316 as int))], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/opt/data/taxi/taxi_zone_lookup.csv], PartitionFilters: [], PushedFilters: [], ReadSchema: struct<LocationID:string,Borough:string,Zone:string>
+      +- Sort [DOLocationID#335 ASC NULLS FIRST], false, 0
+         +- Exchange hashpartitioning(DOLocationID#335, 8), ENSURE_REQUIREMENTS, [plan_id=163]
+            +- Project [cast(LocationID#359 as int) AS DOLocationID#335, Borough#360 AS DO_Borough#336, Zone#361 AS DO_Zone#337]
+               +- Filter isnotnull(cast(LocationID#359 as int))
+                  +- FileScan csv [LocationID#359,Borough#360,Zone#361] Batched: false, DataFilters: [isnotnull(cast(LocationID#359 as int))], Format: CSV, Location: InMemoryFileIndex(1 paths)[file:/opt/data/taxi/taxi_zone_lookup.csv], PartitionFilters: [], PushedFilters: [], ReadSchema: struct<LocationID:string,Borough:string,Zone:string>
+
+
+RESULT,load_clean_join,248.69
+clean rows: 9170836
+RESULT,q1_hourly_by_borough,15.95
++---------------------+---------------------+-----+-------+
+|PU_Zone              |DO_Zone              |trips|avg_min|
++---------------------+---------------------+-----+-------+
+|Upper East Side South|Upper East Side North|63480|7.2    |
+|Upper East Side North|Upper East Side South|56261|8.0    |
+|Upper East Side North|Upper East Side North|44107|4.8    |
+|Upper East Side South|Upper East Side South|40985|5.7    |
+|Midtown Center       |Upper East Side South|30667|9.1    |
+|Lincoln Square East  |Upper West Side South|26542|6.2    |
+|Upper East Side South|Midtown Center       |26373|9.3    |
+|Upper West Side South|Lincoln Square East  |26324|6.0    |
+|Midtown Center       |Upper East Side North|26149|13.1   |
+|Upper West Side South|Upper West Side North|25229|5.1    |
++---------------------+---------------------+-----+-------+
+
+RESULT,q2_top_routes,15.09
++-------------+--------------------------------+-----------+----+
+|PU_Borough   |PU_Zone                         |revenue    |rank|
++-------------+--------------------------------+-----------+----+
+|Bronx        |Mott Haven/Port Morris          |52269.0    |1   |
+|Bronx        |Co-Op City                      |52135.0    |2   |
+|Bronx        |East Concourse/Concourse Village|35804.0    |3   |
+|Brooklyn     |Downtown Brooklyn/MetroTech     |170860.0   |1   |
+|Brooklyn     |Brooklyn Heights                |151376.0   |2   |
+|Brooklyn     |Williamsburg (North Side)       |119379.0   |3   |
+|EWR          |Newark Airport                  |6296.0     |1   |
+|Manhattan    |Midtown Center                  |1.0727409E7|1   |
+|Manhattan    |Times Sq/Theatre District       |8696497.0  |2   |
+|Manhattan    |Upper East Side South           |8645083.0  |3   |
+|N/A          |Outside of NYC                  |111271.0   |1   |
+|Queens       |JFK Airport                     |3.3196193E7|1   |
+|Queens       |LaGuardia Airport               |1.863893E7 |2   |
+|Queens       |East Elmhurst                   |2385695.0  |3   |
+|Staten Island|Arrochar/Fort Wadsworth         |1716.0     |1   |
+|Staten Island|Bloomfield/Emerson Hill         |912.0      |2   |
+|Staten Island|South Beach/Dongan Hills        |728.0      |3   |
+|Unknown      |N/A                             |800150.0   |1   |
++-------------+--------------------------------+-----------+----+
+
+RESULT,q3_top_zones_window,13.01
++-----------+-----+-------+
+|pickup_date|trips|    ma7|
++-----------+-----+-------+
+| 2024-01-01|74991|74991.0|
+| 2024-01-02|72607|73799.0|
+| 2024-01-03|79567|75722.0|
+| 2024-01-04|99762|81732.0|
+| 2024-01-05|99729|85331.0|
+| 2024-01-06|93291|86658.0|
+| 2024-01-07|64828|83539.0|
+| 2024-01-08|77417|83886.0|
+| 2024-01-09|90027|86374.0|
+| 2024-01-10|92149|88172.0|
++-----------+-----+-------+
+only showing top 10 rows
+
+RESULT,q4_moving_avg,11.44
++------------+-------+-----------+
+|payment_type|      n|avg_tip_pct|
++------------+-------+-----------+
+|           1|7179112|      25.57|
+|           3|  30796|       0.03|
+|           2|1264038|        0.0|
+|           4|  69582|        0.1|
+|           0| 627308|       5.24|
++------------+-------+-----------+
+
+RESULT,q5_tip_by_payment,11.32
+RESULT,fit_LinearRegression,57.51
+METRICS,LinearRegression,rmse=7.260,r2=0.6482
